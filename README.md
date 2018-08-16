@@ -4,13 +4,29 @@
 
 Basic setup to create a "hello world" program.
 
-### Invocation
+## Demonstrate
+
+### Set environment variables
 
 ```console
-hello-world
+export PROJECT_DIR="${HOME}/docktermj.git"
+export REPOSITORY_DIR="${PROJECT_DIR}/java-hello-world"
 ```
 
-## Demonstrate
+### Via command-line
+
+```console
+cd ${REPOSITORY_DIR}
+mvn package
+java -cp target/java-hello-world-0.0.1-SNAPSHOT.jar com.example.javahelloworld.HelloWorld
+```
+
+### Via Maven
+
+```console
+cd ${REPOSITORY_DIR}
+mvn exec:java -Dexec.mainClass="com.example.javahelloworld.HelloWorld"
+```
 
 ## Development
 
@@ -45,13 +61,11 @@ git clone git@github.com:docktermj/java-hello-world.git
 
 ### Build
 
+#### Local build
+
 ```console
 mvn package
 ```
-
-#### Local build
-
-#### Docker build
 
 ### Test
 
