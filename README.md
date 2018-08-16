@@ -2,7 +2,8 @@
 
 ## Usage
 
-Basic setup to create a "hello world" program.
+Basic setup to create a "hello world" program using
+[Maven](https://maven.apache.org/).
 
 ## Demonstrate
 
@@ -13,7 +14,17 @@ export PROJECT_DIR="${HOME}/docktermj.git"
 export REPOSITORY_DIR="${PROJECT_DIR}/java-hello-world"
 ```
 
-### Via command-line
+### Download project
+
+```console
+mkdir -p ${PROJECT_DIR}
+cd ${PROJECT_DIR}
+git clone git@github.com:docktermj/java-hello-world.git
+```
+
+### Run program
+
+#### Run via command-line
 
 ```console
 cd ${REPOSITORY_DIR}
@@ -21,7 +32,7 @@ mvn package
 java -cp target/java-hello-world-0.0.1-SNAPSHOT.jar com.example.javahelloworld.HelloWorld
 ```
 
-### Via Maven
+#### Run via Maven
 
 ```console
 cd ${REPOSITORY_DIR}
@@ -64,9 +75,20 @@ git clone git@github.com:docktermj/java-hello-world.git
 #### Local build
 
 ```console
+cd ${REPOSITORY_DIR}
 mvn package
 ```
 
 ### Test
 
+```console
+cd ${REPOSITORY_DIR}
+mvn test
+```
+
 ### Cleanup
+
+```console
+cd ${REPOSITORY_DIR}
+mvn clean
+```
