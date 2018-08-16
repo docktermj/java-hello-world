@@ -1,32 +1,36 @@
-# hello-senzing
+# java-hello-world
 
 ## Usage
 
-A simple program to show how to use senzing
-[senzing](https://senzing.com/).
+Basic setup to create a "hello world" program.
 
 ### Invocation
 
 ```console
-hello-senzing
+hello-world
 ```
 
 ## Demonstrate
 
-### Terminal #1
-
-
 ## Development
+
+History: This project was initialized using:
+
+```console
+mvn archetype:generate \
+  -DgroupId=com.example.javahelloworld \
+  -DartifactId=java-hello-world \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false
+```
 
 ### Dependencies
 
 #### Set environment variables
 
 ```console
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
-export PROJECT_DIR="${GOPATH}/src/github.com/docktermj"
-export REPOSITORY_DIR="${PROJECT_DIR}/go-hello-etcd"
+export PROJECT_DIR="${HOME}/docktermj.git"
+export REPOSITORY_DIR="${PROJECT_DIR}/java-hello-world"
 ```
 
 #### Download project
@@ -34,60 +38,21 @@ export REPOSITORY_DIR="${PROJECT_DIR}/go-hello-etcd"
 ```console
 mkdir -p ${PROJECT_DIR}
 cd ${PROJECT_DIR}
-git clone git@github.com:docktermj/go-hello-etcd.git
+git clone git@github.com:docktermj/java-hello-world.git
 ```
 
 #### Download dependencies
 
-```console
-cd ${REPOSITORY_DIR}
-make dependencies
-```
-
-Etcd command-line tool
-
-```console
-go get -u github.com/coreos/etcd/etcdctl
-```
-
-Fix [bug](https://github.com/coreos/etcd/issues/8715).
-
-```console
-rm  ${REPOSITORY_DIR}/vendor/github.com/coreos/etcd/client/keys.generated.go
-```
-
 ### Build
+
+```console
+mvn package
+```
 
 #### Local build
 
-```console
-cd ${REPOSITORY_DIR}
-make
-```
-
-The results will be in the `${GOPATH}/bin` directory.
-
 #### Docker build
-
-Create `rpm` and `deb` installation packages.
-
-```console
-cd ${REPOSITORY_DIR}
-make build
-```
-
-The results will be in the `${REPOSITORY_DIR}/target` directory.
 
 ### Test
 
-```console
-cd ${REPOSITORY_DIR}
-make test-local
-```
-
 ### Cleanup
-
-```console
-cd ${REPOSITORY_DIR}
-make clean
-```
